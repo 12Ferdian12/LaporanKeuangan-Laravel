@@ -19,3 +19,4 @@ use App\Http\Controllers\KategoriController;
 // });
 
 Route::get('/', [KategoriController::class, 'index']);
+Route::get('kategori/create', [KategoriController::class, 'create']);
