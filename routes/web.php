@@ -14,9 +14,12 @@ use App\Http\Controllers\KategoriController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return redirect()->route('kategori.index');
+});
 
-Route::get('/', [KategoriController::class, 'index']);
-Route::get('kategori/create', [KategoriController::class, 'create']);
+Route::prefix('kategori')->name('kategori.')->group( function() {
+    Route::get('/', [KategoriController::class, 'index'])->name('index');
+    Route::get('/create', [KategoriController::class, 'create'])->name('create');
+    Route::post('/create', [KategoriController::class, 'store'])->name('store');
+});

@@ -15,6 +15,9 @@
                     <th scope="col" class="px-6 py-3">
                         nama kategori
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                        aksi
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +28,14 @@
                         </th>
                         <td class="px-6 py-4">
                             {{$kategori->namaKategori}}
+                        </td>
+                        <td class="px-6 py-4">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-1">
+                                Edit
+                            </button>
+                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
+                                Delete
+                            </button>
                         </td>
                     </tr>
                 @endforeach

@@ -29,7 +29,11 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Kategori::insert([
+            'namaKategori' => $request->CategoryName
+        ]);
+
+        return redirect()->route('kategori.index');
     }
 
     /**
