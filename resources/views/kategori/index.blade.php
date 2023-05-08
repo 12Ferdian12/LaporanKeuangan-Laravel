@@ -30,9 +30,11 @@
                             {{$kategori->namaKategori}}
                         </td>
                         <td class="px-6 py-4">
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-1">
-                                Edit
-                            </button>
+                            <a href="{{route('kategori.edit',[ 'id' => $kategori->KategoriID])}}">
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-1">
+                                    Edit
+                                </button>
+                            </a>
                             <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
                                 Delete
                             </button>

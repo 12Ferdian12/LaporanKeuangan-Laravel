@@ -49,7 +49,11 @@ class KategoriController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // $kategori = Kategori::where('KategoriID',$id)->first();
+        // $kategori = DB::statement('insert from kategori values('insert from kategori value.....')');
+        $kategori = Kategori::find($id);
+        
+        return view('kategori.edit',compact('kategori'));
     }
 
     /**
@@ -57,7 +61,11 @@ class KategoriController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        Kategori::where('KategoriID',$id)->update([
+            'namaKategori' => $request->CategoryName
+        ]);
+
+        return redirect()->route('kategori.index');
     }
 
     /**
