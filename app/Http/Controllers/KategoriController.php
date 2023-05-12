@@ -73,6 +73,12 @@ class KategoriController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            Kategori::where('KategoriID',$id)->delete();
+        } catch(\Exception $e){
+            dd($e->getMessage());
+            return $e->getMessage();
+        }
+        return redirect()->route('kategori.index');
     }
 }

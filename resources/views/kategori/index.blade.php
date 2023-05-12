@@ -29,15 +29,19 @@
                         <td class="px-6 py-4">
                             {{$kategori->namaKategori}}
                         </td>
-                        <td class="px-6 py-4">
-                            <a href="{{route('kategori.edit',[ 'id' => $kategori->KategoriID])}}">
+                        <td class="px-6 py-4 grid gap-1 grid-cols-2 w-1/3">
+                            <a href="{{route('kategori.edit',[ 'id' => $kategori->KategoriID])}}" >
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-1">
                                     Edit
                                 </button>
                             </a>
-                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
-                                Delete
-                            </button>
+                            <form action="{{route('kategori.delete',[ 'id' => $kategori->KategoriID])}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
+                                    Delete
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
