@@ -6,6 +6,11 @@
 
 @section('content')
     <div class="relative overflow-x-auto">
+        <a href="{{route('kategori.create')}}">
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full mr-1 mb-2">
+                Create
+            </button>
+        </a>
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>

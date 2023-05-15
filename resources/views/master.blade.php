@@ -7,6 +7,25 @@
   <title>@yield('title')</title>
 </head>
 <body>
+  <nav id="Nav" class="flex z-50 p-7 border-b-2 h-28 border-pink-500 bg-transparent backdrop-filter backdrop-blur overflow-hidden justify-between items-center shadow-lg sticky top-0 bg-slate-900 ">
+      <div class="flex ">
+          <h1 class=" float-left mx-4    font-bold text-2xl text-violet-700 font-Japan hover:border-b-2 border-violet-700 " >フェルディナンド.</h1>
+      </div>
+      <div class="flex float-left items-center justify-between"  >
+          <div class=" mx-4 font-bold  text-sky-50 hover:border-b-2 border-violet-700" >
+              <a class="text-violet-700" href="{{route('transaksi.create')}}">Transaksi</a>
+          </div>
+          <div class=" mx-4 font-bold  text-sky-50 hover:border-b-2 border-violet-700">
+              <a class="text-violet-700" href="{{route('kategori.index')}}">Kategori</a>
+          </div>
+          <div class=" mx-4 font-bold text-sky-50 hover:border-b-2 border-violet-700">
+              <a class="text-violet-700" href="#">Report</a>
+          </div>
+          <div class="mx-4 font-bold  text-sky-50 hover:border-b-2 border-violet-700">
+              <a class="text-violet-700" href="{{route('transaksi.index')}}">History</a>
+          </div>
+      </div>
+  </nav>
   <div class="p-5">
     @yield('content')
   </div>
