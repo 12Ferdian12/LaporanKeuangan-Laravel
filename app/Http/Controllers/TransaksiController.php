@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kategori;
 
 class TransaksiController extends Controller
 {
@@ -19,7 +20,8 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        dd("ini halaman transaksi");        
+        $kategoris = Kategori::all();
+        return view('transaksi.create',compact('kategoris'));
     }
 
     /**
@@ -27,7 +29,7 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
