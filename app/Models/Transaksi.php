@@ -18,7 +18,7 @@ class Transaksi extends Model
         'Tipe',
         'Judul',
         'Jumlah',
-        'KategoriID',
+        'IdKategori',
     ];
 
 }

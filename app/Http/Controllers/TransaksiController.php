@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kategori;
+use App\Models\Transaksi;
 
 class TransaksiController extends Controller
 {
@@ -29,7 +30,24 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $this->validate($request,[
+            "TransaksiName" => 'required|min:3',
+            "Nominal" => 'required',
+            "Type" => 'required',
+            "Category" => 'required',
+            "Date" => 'required',
+        ]);
+
+        // dd($request);
+
+        Transaksi::insert([
+            'Tanggal' => $request->Date,
+            'IdKategori' => $request->Category,
+            'Tipe' => $request->Type,
+            'Jumlah' => $request->Nominal,
+            'Judul' => $request->TransaksiName,
+        ]);
+        return redirect()->route("transaksi.create");
     }
 
     /**
