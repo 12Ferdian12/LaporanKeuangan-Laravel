@@ -78,5 +78,6 @@
   <div class="p-5">
     @yield('content')
   </div>
+  @yield('js')
 </body>
 </html>

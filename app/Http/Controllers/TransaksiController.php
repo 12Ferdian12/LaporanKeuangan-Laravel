@@ -13,7 +13,10 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        dd("ini halaman history");
+        $transaksi = Transaksi::join('kategori', 'kategori.KategoriID','=','transaksi.IdKategori')->get();    
+        // query
+        // "SELECT * FROM transaksi join kategori ON kategori.KategoriID = transaksi.IdKategori"    
+        return view('History.index',compact('transaksi'));
     }
 
     /**
