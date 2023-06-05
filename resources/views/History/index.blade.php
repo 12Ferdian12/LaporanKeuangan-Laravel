@@ -48,7 +48,7 @@
                             @currency($tr->Jumlah)
                         </td>
                         <td class="px-6 py-4 grid gap-1 grid-cols-2 ">
-                            <a href="#" >
+                            <a href="{{ route('transaksi.edit', [ 'id' => $tr->TransaksiID]) }}" >
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-1">
                                     Edit
                                 </button>

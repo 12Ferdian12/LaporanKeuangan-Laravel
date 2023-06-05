@@ -66,7 +66,11 @@ class TransaksiController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $transaksi = Transaksi::find($id);
+        $kategoris = Kategori::all();
+
+        // dd($transaksi, $kategoris);
+        return view('History.edit',compact('transaksi','kategoris')); 
     }
 
     /**
@@ -74,7 +78,7 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        dd($request->all(), $id);
     }
 
     /**
