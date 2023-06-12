@@ -53,13 +53,15 @@
                                     Edit
                                 </button>
                             </a>
-                            <form action="#" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
-                                    Delete
-                                </button>
-                            </form>
+                            <a onclick="return confirm('Are you sure?')">
+                                <form action="{{ route('transaksi.delete',['id'=>$tr->TransaksiID]) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
+                                        Delete
+                                    </button>
+                                </form>
+                            </a>
                         </td>
                     </tr>
                 @endforeach

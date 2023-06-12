@@ -31,6 +31,7 @@ Route::prefix('kategori')->name('kategori.')->group( function() {
 Route::prefix('transaksi')->name('transaksi.')->group( function() {
     Route::get('/history', [TransaksiController::class, 'index'])->name('index');
     Route::get('/', [TransaksiController::class, 'create'])->name('create');
+    Route::get('/report', [TransaksiController::class, 'report'])->name('report');
     Route::post('/create', [TransaksiController::class, 'store'])->name('store');
     Route::get('/{id}/edit', [TransaksiController::class, 'edit'])->name('edit');
     Route::post('/{id}/edit', [TransaksiController::class, 'update'])->name('update');

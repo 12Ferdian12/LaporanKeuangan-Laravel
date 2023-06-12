@@ -56,9 +56,14 @@ class TransaksiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function report()
     {
-        //
+        $Pemasukan = Transaksi::where('Tipe','=','Pemasukan')->sum('Jumlah');
+        $Pengeluaran = Transaksi::where('Tipe','=','Pengeluaran')->sum('Jumlah');
+        $Balance = $Pemasukan - $Pengeluaran;
+
+        return view('Report.index', compact('Balance','Pemasukan','Pengeluaran'));
+        // dd($Pemasukan,$Pengeluaran, $Balance);
     }
 
     /**
@@ -78,7 +83,14 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        dd($request->all(), $id);
+        Transaksi::where('TransaksiID',$id)->update([
+            'Judul' => $request->TransaksiName,
+            'Jumlah'=>$request->Nominal,
+            'Tipe'=>$request->Type,
+            'IdKategori'=>$request->Category,
+            'Tanggal'=>$request->Date
+        ]);
+        return redirect()-> route('transaksi.index');
     }
 
     /**
@@ -86,6 +98,13 @@ class TransaksiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // dd($id);
+        try {
+            Transaksi::where('TransaksiID',$id)->delete();
+        } catch(\Exception $e){
+            dd($e->getMessage());
+            return $e->getMessage();
+        }
+        return redirect()->route('transaksi.index');
     }
 }
