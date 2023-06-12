@@ -15,6 +15,11 @@ use App\Http\Controllers\TransaksiController;
 |
 */
 
+
+Route::get('/Login', function () {
+    return view('Authentification.login');
+});
+
 Route::get('/', function () {
     return redirect()->route('kategori.index');
 });
