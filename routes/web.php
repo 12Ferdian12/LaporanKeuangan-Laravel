@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\KategoriController;
@@ -16,9 +17,11 @@ use App\Http\Controllers\TransaksiController;
 */
 
 
-Route::get('/Login', function () {
+Route::get('/login', function () {
     return view('Authentification.login');
-});
+})->name('login');
+
+Route::post('/login', [AuthController::class, 'auth'])->name('auth');
 
 Route::get('/', function () {
     return redirect()->route('kategori.index');
