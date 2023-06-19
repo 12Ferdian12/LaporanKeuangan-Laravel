@@ -24,6 +24,12 @@
             <div class="mx-4 font-bold  text-sky-50 hover:border-b-2 border-violet-700">
                 <a class="text-violet-700" href="{{route('transaksi.index')}}">History</a>
             </div>
+            <div class="mx-4 font-bold  text-sky-50 hover:border-b-2 border-violet-700">
+                <a class="text-violet-700" href="#">logout</a>
+            </div>
+            <div class="mx-4 font-bold  text-sky-50 hover:border-b-2 border-violet-700">
+                <a class="text-violet-700" href="#">{{auth()->user()->email}}</a>
+            </div>
         </div>
         <!-- Mobile menu button -->
         <div class="md:hidden flex items-center">
@@ -61,6 +67,16 @@
                 <li> 
                     <div class="mx-4 font-bold  text-sky-50 hover:border-b-2 border-violet-700">
                         <a class="text-violet-700" href="{{route('transaksi.index')}}">History</a>
+                    </div>
+                </li>
+                <li> 
+                    <div class="mx-4 font-bold  text-sky-50 hover:border-b-2 border-violet-700">
+                        <a class="text-violet-700" href="#">Logout</a>
+                    </div>
+                </li>
+                <li> 
+                    <div class="mx-4 font-bold  text-sky-50 hover:border-b-2 border-violet-700">
+                        <a class="text-violet-700" href="#">{{auth()->user()->email}}</a>
                     </div>
                 </li>
             </ul>

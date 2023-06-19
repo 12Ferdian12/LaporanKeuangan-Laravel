@@ -16,18 +16,16 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        // $user = User::where('email','=',$request->email)->first();
+        $credential = $request->only('email', 'password');
 
-        
-        $user = $request->only('email','password');
-        
-        if(!$user){
-            return redirect()->route("login");
+        if(Auth::attempt($credential)) {
+            // dd(Auth::user());
+            return redirect()->route('kategori.index');
         }
 
-        Auth::attempt($user);
-        dd(Auth::user());
-
-        return redirect()->route('kategori.index');
+        // dd("password / email salah");
+        
+        return redirect()->route('login');
     }
+
 }
