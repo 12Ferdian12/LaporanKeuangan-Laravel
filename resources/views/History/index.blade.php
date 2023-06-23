@@ -48,20 +48,22 @@
                             @currency($tr->Jumlah)
                         </td>
                         <td class="px-6 py-4 grid gap-1 grid-cols-2 ">
-                            <a href="{{ route('transaksi.edit', [ 'id' => $tr->TransaksiID]) }}" >
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-1">
-                                    Edit
-                                </button>
-                            </a>
-                            <a onclick="return confirm('Are you sure?')">
-                                <form action="{{ route('transaksi.delete',['id'=>$tr->TransaksiID]) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
-                                        Delete
+                            @if(auth()->user()->role == 'Admin')
+                                <a href="{{ route('transaksi.edit', [ 'id' => $tr->TransaksiID]) }}" >
+                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-1">
+                                        Edit
                                     </button>
-                                </form>
-                            </a>
+                                </a>
+                                <a onclick="return confirm('Are you sure?')">
+                                    <form action="{{ route('transaksi.delete',['id'=>$tr->TransaksiID]) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

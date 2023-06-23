@@ -30,8 +30,7 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[ 
-            "CategoryName" => 'required|min:3|max:20|numeric',
-            "test" => 'required'
+            "CategoryName" => 'required|min:3|max:20'
         ]);
 
         Kategori::insert([

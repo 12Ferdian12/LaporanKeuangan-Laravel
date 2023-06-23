@@ -16,14 +16,14 @@ class DatabaseSeeder extends Seeder
     {
         User::insert([
             [
-                'Email' => 'example@gmail.com',
-                'Role' => 'User',
-                'Password' => Hash::make('password'),
+                'email' => 'example@gmail.com',
+                'role' => 'User',
+                'password' => Hash::make('password'),
             ],
             [
-                'Email' => 'admin@gmail.com',
-                'Role' => 'Admin',
-                'Password' => Hash::make('password'),
+                'email' => 'admin@gmail.com',
+                'role' => 'Admin',
+                'password' => Hash::make('password'),
             ],
        ]
     );
